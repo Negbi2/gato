@@ -70,7 +70,7 @@ public class TickTack {
                                 rOneX += 1;
                                 cTwoX += 1;
                             }else{
-                                rOneX += 1;
+                                rOneO += 1;
                                 cTwoO += 1;
                             }
                         }else{
