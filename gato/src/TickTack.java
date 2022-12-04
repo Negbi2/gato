@@ -31,16 +31,10 @@ public class TickTack {
         while (!coordinates.equals("win")){
             counter ++;
 
-            if(counter == 10){
-                System.out.println("it's a tie");
-                return;
-            }
-            for (int fila = 0; fila < 5; fila++) {
-                for (int columna = 0; columna < 5; columna++) {
-                    System.out.print(tickTackToe[fila][columna]);
-                }
-                System.out.println();
-            }
+
+            //print the gameboard
+            printScreen();
+
             boolean checker = false;
             while (!checker) {
                 coordinates = in.next();
@@ -218,7 +212,7 @@ public class TickTack {
                 }
             }
 
-            //check whose turn is it and alocate the piece
+            //check whose turn is it and allocate the piece
             if (counter % 2 == 0){
                 tickTackToe[yCoor][xCoor] = "x";
             }else{
@@ -227,92 +221,96 @@ public class TickTack {
             //check if the game has benn won
             if (counter >= 5){
                 if(this.hasWon()){
+                    printScreen();
+                    if (counter % 2 == 0){
+                        System.out.println("congratulations on winning x");
+                    }else{
+                        System.out.println("congratulations on winning o");
+                    }
                     return;
                 }
+            }
+            //checks if there has been a tie
+            if(counter == 10){
+                printScreen();
+                System.out.println("it's a tie");
+                return;
             }
         }
     }
     public boolean hasWon(){
         if (rOneX == 3){
             coordinates = "win";
-            System.out.println("congratulations on winning x");
             return true;
         }
         if (rTwoX == 3){
             coordinates = "win";
-            System.out.println("congratulations on winning x");
             return true;
         }
         if (rThreeX == 3){
             coordinates = "win";
-            System.out.println("congratulations on winning x");
             return true;
         }
         if (rOneO == 3){
             coordinates = "win";
-            System.out.println("congratulations on winning o");
             return true;
         }
         if (rTwoO == 3){
             coordinates = "win";
-            System.out.println("congratulations on winning o");
             return true;
         }
         if (rThreeO == 3){
             coordinates = "win";
-            System.out.println("congratulations on winning o");
             return true;
         }
         if (cOneX == 3){
             coordinates = "win";
-            System.out.println("congratulations on winning x");
             return true;
         }
         if (cTwoX == 3){
             coordinates = "win";
-            System.out.println("congratulations on winning x");
             return true;
         }
         if (cThreeX == 3){
             coordinates = "win";
-            System.out.println("congratulations on winning x");
             return true;
         }
         if (cOneO == 3){
             coordinates = "win";
-            System.out.println("congratulations on winning o");
             return true;
         }
         if (cTwoO == 3){
             coordinates = "win";
-            System.out.println("congratulations on winning o");
             return true;
         }
         if (cThreeO == 3){
             coordinates = "win";
-            System.out.println("congratulations on winning o");
             return true;
         }
         if (dOneX == 3){
             coordinates = "win";
-            System.out.println("congratulations on winning x");
             return true;
         }
         if (dTwoX == 3){
             coordinates = "win";
-            System.out.println("congratulations on winning x");
             return true;
         }
         if (dOneO == 3){
             coordinates = "win";
-            System.out.println("congratulations on winning o");
             return true;
         }
         if (dTwoO == 3){
             coordinates = "win";
-            System.out.println("congratulations on winning o");
             return true;
         }
         return false;
+    }
+    public void printScreen(){
+        for (int fila = 0; fila < 5; fila++) {
+            for (int columna = 0; columna < 5; columna++) {
+                System.out.print(tickTackToe[fila][columna]);
+            }
+            System.out.println();
+        }
     }
 }
